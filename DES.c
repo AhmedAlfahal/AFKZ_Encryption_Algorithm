@@ -6,7 +6,7 @@ int main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		txtBin2int(&d);
+		txtBin2int(&d, av[1]);
 	}
 	else
 	{

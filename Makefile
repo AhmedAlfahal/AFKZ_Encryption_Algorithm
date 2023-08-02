@@ -7,7 +7,8 @@ NAME	=	SimplifiedDES
 LIBS	=	get_next_line/gnl.a
 
 
-SRC		=	DES.c		
+SRC		=	DES.c		\
+			DES_utils.c
 
 SRCS	=	$(SRC:%.c=%.o)
 
