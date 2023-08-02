@@ -9,4 +9,6 @@ typedef struct s_DES
 	int **keys;
 }	t_DES;
 
+void	txtBin2int(t_DES *d);
+
 #endif
