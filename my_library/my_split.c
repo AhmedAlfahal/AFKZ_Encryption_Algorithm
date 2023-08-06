@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   my_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aalfahal <aalfahal@student.42abudhabi.ae>  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 16:00:46 by aalfahal          #+#    #+#             */
-/*   Updated: 2023/08/06 14:26:02 by aalfahal         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include"my_lib.h"
 
 static int	sep_count(char const *s, char c)
@@ -39,7 +27,7 @@ static size_t	next_sep(char const *s, char c)
 		}
 		i++;
 	}
-	return (ft_strlen(s));
+	return (my_strlen(s));
 }
 
 char	**ft_split(char const *s, char c)

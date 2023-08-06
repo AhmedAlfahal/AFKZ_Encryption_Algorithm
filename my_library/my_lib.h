@@ -10,5 +10,7 @@ int		my_isbinary(int s);
 void	my_bzero(void *s, size_t n);
 char	**my_split(char const *s, char c);
 int		my_filecmp(const char *s1, const char *s2, int n);
+char	*my_substr(char const *s, unsigned int start, int len);
+char	*my_strdup(const char *s1);
 
 #endif

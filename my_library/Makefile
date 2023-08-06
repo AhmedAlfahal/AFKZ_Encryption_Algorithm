@@ -6,7 +6,9 @@ CFLAGS	= 	-Wall -Wextra -Werror
 
 OBJ		=	my_strlen.c		\
 			my_isdigit.c	\
-			my_bzero.c		
+			my_bzero.c		\
+			my_strdup.c		\
+			my_substr.c		
 			
 OBJS 	= 	$(OBJ:%.c=%.o)
 

@@ -1,6 +1,4 @@
 #include "DES.h"
-#include "my_library/my_lib.h"
-#include <stdio.h>
 
 void	print_2d_array(char **d)
 {

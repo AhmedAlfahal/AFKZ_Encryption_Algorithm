@@ -2,9 +2,10 @@
 #define DES_H
 
 #include "./get_next_line/get_next_line.h"
-#include "./my_library/my_lib.h"
 #include "fcntl.h"
 #include <stdlib.h>
+#include "my_library/my_lib.h"
+#include <stdio.h>
 
 typedef struct s_pTable
 {
@@ -45,7 +46,6 @@ typedef struct s_DES
 	char		**files_name;
 }	t_DES;
 
-void	txtBin2int(t_DES *d, char *txt);
 void	closing_and_freeing(int fd, char *line, int ext);
 void	reading_files(t_DES *d);
 
