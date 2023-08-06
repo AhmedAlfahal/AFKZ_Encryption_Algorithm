@@ -42,6 +42,7 @@ typedef struct s_DES
 	t_pTable	pTables;
 	char		*plain;
 	char		*cypher;
+	char		**files_name;
 }	t_DES;
 
 void	txtBin2int(t_DES *d, char *txt);
