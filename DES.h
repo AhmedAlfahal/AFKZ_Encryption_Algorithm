@@ -4,6 +4,7 @@
 #include "./get_next_line/get_next_line.h"
 #include "./my_library/my_lib.h"
 #include "fcntl.h"
+#include <stdlib.h>
 
 typedef struct s_pTable
 {
@@ -35,8 +36,8 @@ typedef struct s_round
 
 typedef struct s_DES
 {
-	t_sbox		s_boxs;
-	t_keys		*keys;
+	t_sbox		*sBoxs;
+	t_keys		keys;
 	t_round		*rounds;
 	t_pTable	pTables;
 	char		*plain;
@@ -45,5 +46,6 @@ typedef struct s_DES
 
 void	txtBin2int(t_DES *d, char *txt);
 void	closing_and_freeing(int fd, char *line, int ext);
+void	reading_files(t_DES *d);
 
 #endif
