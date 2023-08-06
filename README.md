@@ -1,2 +1,3 @@
 # Simplified_DES
-![Algorithm](https://github.com/AhmedAlfahal/Simplified_DES/assets/111463922/7f6ee858-4273-4970-bba1-399c562c40b9)
+![Algorithm](https://github.com/AhmedAlfahal/Simplified_DES/assets/111463922/07488836-a0b8-41b0-a97b-5897ccba88f1)
+
