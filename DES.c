@@ -34,6 +34,7 @@ void	reading_files(t_DES *d)
 		line = get_next_line(fd);
 	}
 	close(fd);
+	
 }
 
 int main(int ac, char **av)
