@@ -54,8 +54,8 @@ void	allocating_all(t_DES *d)
 		d->sBoxs[i].iS_box = malloc (sizeof(char *) * 5);
 		my_bzero(d->sBoxs[i].iS_box, sizeof(char *) * 5);
 	}
-	d->files_name = malloc(sizeof(char *) * 12);
-	my_bzero(d->files_name, sizeof(char *) * 12);
+	d->files_name = malloc(sizeof(char *) * 13);
+	my_bzero(d->files_name, sizeof(char *) * 13);
 	d->files_name[0] = strdup("tables/s_box1.DES");
 	d->files_name[1] = strdup("tables/s_box2.DES");
 	d->files_name[2] = strdup("tables/s_box3.DES");
@@ -94,6 +94,7 @@ void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
 	reading_s_box(d, s, tmp_sBox);
 	printf("file [%d][%s]\n", i++, file_name);
 	print_sBox(d->sBoxs->s_box);
+	free_2d_array(tmp_sBox);
 	close(fd);
 }
 

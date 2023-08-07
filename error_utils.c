@@ -27,13 +27,14 @@ void	free_all(t_DES *d)
 {
 	for (int i = 0; i < 13; i++)
 	{
-		free_2d_array(d->files_name);
 		free_2d_array(d->sBoxs[i].s_box);
+		free(d->sBoxs[i].iS_box);
 	}
+	free_2d_array(d->files_name);
 	free(d->sBoxs);
 }
 
-void	clean_exit(t_DES *d, int ex)
+void	clean_exit(t_DES *d,int ex)
 {
 	free_all(d);
 	if (ex == 1)
