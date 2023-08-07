@@ -53,5 +53,6 @@ void	clean_exit(t_DES *d,int ex, int msg);
 int		my_atoi(const char *str);
 void	print_2d_array(char **d);
 void	print_Box(char **sBox, int msg);
+void	creating_inverse(t_sbox *s);
 
 #endif

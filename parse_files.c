@@ -232,6 +232,7 @@ static void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
 		reading_s_box(d, s, tmp_sBox);
 		validate_sBox(d, s->s_box, NULL, 1);
 		print_Box(s->s_box, 1);
+		creating_inverse(s);
 	}
 	printf("file [%d][%s]\n", i++, file_name);
 	free_2d_array(tmp_sBox);
