@@ -34,9 +34,13 @@ void	free_all(t_DES *d)
 	free(d->sBoxs);
 }
 
-void	clean_exit(t_DES *d,int ex)
+void	clean_exit(t_DES *d,int ex, int msg)
 {
 	free_all(d);
+	if (msg == 1)
+		write(2, "sBox size is not 4\n", 20);
+	else if (msg == 2)
+		write(2, "Duplicate in sBox\n", 19);
 	if (ex == 1)
 		exit (ex);
 }
@@ -55,7 +59,7 @@ static int	val(t_DES *d, char **tmp, const char *va, int n)
 		if (res > 15 || res < 0)
 		{
 			free_2d_array(tmp);
-			clean_exit(d, 1);
+			clean_exit(d, 1, 0);
 		}
 	}
 	return (res);

@@ -18,7 +18,34 @@ void	print_sBox(char **sBox)
 		printf("[%d]	[%d]	[%d]	[%d]\n", (int)sBox[i][0], (int)sBox[i][1], (int)sBox[i][2], (int)sBox[i][3]);
 	}
 }
-void	reading_s_box(t_DES *d, t_sbox *s, char **s_box)
+
+static void	validate_sBox(t_DES *d, t_sbox *s)
+{
+	int tmp = -1;
+	for (int i = 0; s->s_box[i]; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			tmp = (int)s->s_box[i][j];
+			for (int k = i; s->s_box[k]; k++)
+			{
+				for (int l = 0; l < 4; l++)
+				{
+					if (i == k && j == l)
+						continue;
+					else if (tmp == s->s_box[k][l])
+					{
+					printf("tmp	=	[%d]	mine	=	[%d]\nk	=	[%d]	l	=	[%d]\n\
+					i	=	[%d]	j	=	[%d]\n", tmp, s->s_box[k][l], k, l, i, j);
+						clean_exit(d, 1, 2);
+					}
+				}
+			}
+		}
+	}
+}
+
+static void	reading_s_box(t_DES *d, t_sbox *s, char **s_box)
 {
 	char **tmp;
 	
@@ -27,6 +54,12 @@ void	reading_s_box(t_DES *d, t_sbox *s, char **s_box)
 	for (int i = 0; s_box[i]; i++)
 	{
 		tmp = my_split(s_box[i], '\t');
+		if (my_strlen_2d(tmp) != 4)
+		{
+			free_2d_array(tmp);
+			free_2d_array(s_box);
+			clean_exit(d, 1,1);
+		}
 		s->s_box[i] = my_strdup("1234");
 		for (int j = 0; tmp[j]; j++)
 		{
@@ -34,7 +67,7 @@ void	reading_s_box(t_DES *d, t_sbox *s, char **s_box)
 			{
 				free_2d_array(tmp);
 				free_2d_array(s_box);
-				clean_exit(d, 1);
+				clean_exit(d, 1, 0);
 			}
 			s->s_box[i][j] = my_atoi(d, tmp, tmp[j]);
 		}
@@ -43,7 +76,7 @@ void	reading_s_box(t_DES *d, t_sbox *s, char **s_box)
 
 }
 
-void	allocating_all(t_DES *d)
+static void	allocating_all(t_DES *d)
 {
 	d->sBoxs = malloc(sizeof(t_sbox) * 13);
 	my_bzero(d->sBoxs, 13);
@@ -72,7 +105,7 @@ void	allocating_all(t_DES *d)
 
 
 
-void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
+static void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
 {
 	int		fd;
 	char	*line;
@@ -95,6 +128,7 @@ void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
 	printf("file [%d][%s]\n", i++, file_name);
 	print_sBox(d->sBoxs->s_box);
 	free_2d_array(tmp_sBox);
+	validate_sBox(d, s);
 	close(fd);
 }
 
@@ -103,5 +137,5 @@ void	reading_files(t_DES *d)
 	allocating_all(d);
 	for (int i = 0; i < 12; i++)
 		reading_files_help(d, &d->sBoxs[i], d->files_name[i]);
-	clean_exit(d, 0);
+	clean_exit(d, 0, 0);
 }

@@ -49,7 +49,7 @@ typedef struct s_DES
 void	closing_and_freeing(int fd, char *line, int ext);
 void	reading_files(t_DES *d);
 void	free_2d_array(char **s);
-void	clean_exit(t_DES *d, int ex);
+void	clean_exit(t_DES *d,int ex, int msg);
 int		my_atoi(t_DES *d, char **tmp, const char *str);
 
 #endif
