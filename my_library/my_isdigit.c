@@ -1,9 +1,14 @@
 #include "my_lib.h"
 
-int	my_isbinary(int s)
+int	my_isdigit(char *s)
 {
-	if (s == '0' || s == '1')
-		return (1);
-	else
-		return (0);
+	int x = 0;
+	for (int i = 0; s[i]; i++)
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+			x = 1;
+		else
+			return (0);
+	}
+	return (x);
 }

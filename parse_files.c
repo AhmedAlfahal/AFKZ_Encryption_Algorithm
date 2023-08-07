@@ -1,4 +1,6 @@
 #include "DES.h"
+#include "my_library/my_lib.h"
+#include <stdio.h>
 
 void	print_2d_array(char **d)
 {
@@ -7,6 +9,38 @@ void	print_2d_array(char **d)
 	i = 0;
 	while (d[i])
 		printf("[%s]\n", d[i++]);
+}
+
+void	print_sBox(char **sBox)
+{
+	for (int i = 0; sBox[i]; i++)
+	{
+		printf("[%d]	[%d]	[%d]	[%d]\n", (int)sBox[i][0], (int)sBox[i][1], (int)sBox[i][2], (int)sBox[i][3]);
+	}
+}
+void	reading_s_box(t_DES *d, t_sbox *s, char **s_box)
+{
+	char **tmp;
+	
+	tmp = NULL;
+
+	for (int i = 0; s_box[i]; i++)
+	{
+		tmp = my_split(s_box[i], '\t');
+		s->s_box[i] = my_strdup("1234");
+		for (int j = 0; tmp[j]; j++)
+		{
+			if (my_isdigit(tmp[j]) == 0)
+			{
+				free_2d_array(tmp);
+				free_2d_array(s_box);
+				clean_exit(d, 1);
+			}
+			s->s_box[i][j] = my_atoi(d, tmp, tmp[j]);
+		}
+		free_2d_array(tmp);
+	}
+
 }
 
 void	allocating_all(t_DES *d)
@@ -38,23 +72,28 @@ void	allocating_all(t_DES *d)
 
 
 
-void	reading_files_help(t_sbox *s, char *file_name)
+void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
 {
 	int		fd;
 	char	*line;
+	char	**tmp_sBox;
 	static int i;
 
 	fd = open(file_name, O_RDONLY);
+	tmp_sBox = malloc(sizeof(char *) * 6);
+	my_bzero(tmp_sBox, sizeof(char *) * 6);
 	if (fd < 0)
 		closing_and_freeing(fd, NULL, 1);
 	line = get_next_line(fd);
 	for (int i = 0; i < 5; i++)
 	{
-		s->s_box[i] = line;
+		tmp_sBox[i] = line;
 		line = get_next_line(fd);
 	}
-	print_2d_array(s->s_box);
+	free(line);
+	reading_s_box(d, s, tmp_sBox);
 	printf("file [%d][%s]\n", i++, file_name);
+	print_sBox(d->sBoxs->s_box);
 	close(fd);
 }
 
@@ -62,5 +101,6 @@ void	reading_files(t_DES *d)
 {
 	allocating_all(d);
 	for (int i = 0; i < 12; i++)
-		reading_files_help(&d->sBoxs[i], d->files_name[i]);
+		reading_files_help(d, &d->sBoxs[i], d->files_name[i]);
+	clean_exit(d, 0);
 }

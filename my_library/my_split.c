@@ -30,7 +30,7 @@ static size_t	next_sep(char const *s, char c)
 	return (my_strlen(s));
 }
 
-char	**ft_split(char const *s, char c)
+char	**my_split(char const *s, char c)
 {
 	int		j;
 	int		seps;
