@@ -16,7 +16,7 @@ void	print_Box(char **sBox, int msg)
 	{
 		for (int i = 0; sBox[i]; i++)
 		{
-			for (int j = 0; sBox[i][j]; j++)
+			for (int j = 0; j < 4; j++)
 				printf("	[%d]	", (int)sBox[i][j]);
 			printf("\n");
 		}

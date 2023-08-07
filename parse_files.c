@@ -219,13 +219,13 @@ static void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
 	{
 		reading_p_box(d, d->pTables, tmp_sBox, 1);
 		validate_sBox(d, d->pTables->key_pTable, NULL, 1);
-		print_Box(d->pTables->key_pTable, 1);
+		// print_Box(d->pTables->key_pTable, 1);
 	}
 	else if (strcmp(file_name, "tables/p_box2.DES") == 0)
 	{
 		reading_p_box(d, d->pTables, tmp_sBox, 2);
 		validate_sBox(d, NULL, d->pTables->text_pTable, 2);
-		print_Box(&d->pTables->text_pTable, 2);
+		// print_Box(&d->pTables->text_pTable, 2);
 	}
 	else
 	{
