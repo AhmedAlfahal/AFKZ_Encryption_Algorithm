@@ -37,10 +37,16 @@ void	free_all(t_DES *d)
 void	clean_exit(t_DES *d,int ex, int msg)
 {
 	free_all(d);
-	if (msg == 1)
+	if (msg == 0)
+		write(1, "Thanks for using our Algorithm\n", 32);
+	else if (msg == 1)
 		write(2, "sBox size is not 4\n", 20);
 	else if (msg == 2)
 		write(2, "Duplicate in sBox\n", 19);
+	else if (msg == 3)
+		write(2, "sBox Value range from [0] - [15]\n", 34);
+	else if (msg == 4)
+		write(2, "sBox has value which is not digit\n", 35);
 	if (ex == 1)
 		exit (ex);
 }
@@ -59,7 +65,7 @@ static int	val(t_DES *d, char **tmp, const char *va, int n)
 		if (res > 15 || res < 0)
 		{
 			free_2d_array(tmp);
-			clean_exit(d, 1, 0);
+			clean_exit(d, 1, 3);
 		}
 	}
 	return (res);

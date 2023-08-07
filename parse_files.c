@@ -1,23 +1,4 @@
 #include "DES.h"
-#include "my_library/my_lib.h"
-#include <stdio.h>
-
-void	print_2d_array(char **d)
-{
-	int	i;
-
-	i = 0;
-	while (d[i])
-		printf("[%s]\n", d[i++]);
-}
-
-void	print_sBox(char **sBox)
-{
-	for (int i = 0; sBox[i]; i++)
-	{
-		printf("[%d]	[%d]	[%d]	[%d]\n", (int)sBox[i][0], (int)sBox[i][1], (int)sBox[i][2], (int)sBox[i][3]);
-	}
-}
 
 static void	validate_sBox(t_DES *d, t_sbox *s)
 {
@@ -34,11 +15,7 @@ static void	validate_sBox(t_DES *d, t_sbox *s)
 					if (i == k && j == l)
 						continue;
 					else if (tmp == s->s_box[k][l])
-					{
-					printf("tmp	=	[%d]	mine	=	[%d]\nk	=	[%d]	l	=	[%d]\n\
-					i	=	[%d]	j	=	[%d]\n", tmp, s->s_box[k][l], k, l, i, j);
 						clean_exit(d, 1, 2);
-					}
 				}
 			}
 		}
@@ -67,7 +44,7 @@ static void	reading_s_box(t_DES *d, t_sbox *s, char **s_box)
 			{
 				free_2d_array(tmp);
 				free_2d_array(s_box);
-				clean_exit(d, 1, 0);
+				clean_exit(d, 1, 4);
 			}
 			s->s_box[i][j] = my_atoi(d, tmp, tmp[j]);
 		}

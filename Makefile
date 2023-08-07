@@ -7,10 +7,12 @@ NAME	=	SimplifiedDES
 LIBS	=	get_next_line/gnl.a my_library/Mylib.a
 
 
-SRC		=	DES.c		\
-			DES_utils.c	\
+SRC		=	DES.c			\
+			DES_utils.c		\
 			parse_files.c	\
-			error_utils.c
+			error_utils.c	\
+			printer.c		\
+			generate_iSbox.c
 
 SRCS	=	$(SRC:%.c=%.o)
 
