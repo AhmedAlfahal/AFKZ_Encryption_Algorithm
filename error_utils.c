@@ -25,13 +25,17 @@ void	free_2d_array(char **s)
 
 void	free_all(t_DES *d)
 {
-	for (int i = 0; i < 13; i++)
+	for (int i = 0; i < 11; i++)
 	{
 		free_2d_array(d->sBoxs[i].s_box);
 		free(d->sBoxs[i].iS_box);
 	}
 	free_2d_array(d->files_name);
 	free(d->sBoxs);
+	free_2d_array(d->pTables->key_pTable);
+	free(d->pTables->text_pTable);
+	free(d->pTables);
+	// free(d->)
 }
 
 void	clean_exit(t_DES *d,int ex, int msg)
@@ -40,18 +44,22 @@ void	clean_exit(t_DES *d,int ex, int msg)
 	if (msg == 0)
 		write(1, "Thanks for using our Algorithm\n", 32);
 	else if (msg == 1)
-		write(2, "sBox size is not 4\n", 20);
+		write(2, "sBox size must be 4x4\n", 23);
 	else if (msg == 2)
 		write(2, "Duplicate in sBox\n", 19);
 	else if (msg == 3)
 		write(2, "sBox Value range from [0] - [15]\n", 34);
 	else if (msg == 4)
-		write(2, "sBox has value which is not digit\n", 35);
+		write(2, "Box has value which is not digit\n", 34);
+	else if (msg == 5)
+		write(2, "pTable for key Value range from [0] - [39]\n", 44);
+	else if (msg == 6)
+		write(2, "pTable for text Value range from [0] - [7]\n", 44);
 	if (ex == 1)
 		exit (ex);
 }
 
-static int	val(t_DES *d, char **tmp, const char *va, int n)
+static int	val(const char *va, int n)
 {
 	long	res;
 
@@ -61,17 +69,12 @@ static int	val(t_DES *d, char **tmp, const char *va, int n)
 	while (va[n] != '\0' && va[n] >= '0' && va[n] <= '9')
 	{
 		res = (res * 10) + (va[n] - '0');
-			n++;
-		if (res > 15 || res < 0)
-		{
-			free_2d_array(tmp);
-			clean_exit(d, 1, 3);
-		}
+		n++;
 	}
 	return (res);
 }
 
-int	my_atoi(t_DES *d, char **tmp, const char *str)
+int	my_atoi(const char *str)
 {
 	int					i;
 	int					sgn;
@@ -91,6 +94,6 @@ int	my_atoi(t_DES *d, char **tmp, const char *str)
 				sgn = -1;
 			i++;
 	}
-	res = val (d, tmp, str, i);
+	res = val (str, i);
 	return (res * sgn);
 }

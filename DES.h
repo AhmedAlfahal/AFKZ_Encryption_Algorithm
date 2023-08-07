@@ -9,7 +9,7 @@
 
 typedef struct s_pTable
 {
-	char	**text_pTable;
+	char	*text_pTable;
 	char	**key_pTable;
 }	t_pTable;
 
@@ -40,7 +40,7 @@ typedef struct s_DES
 	t_sbox		*sBoxs;
 	t_keys		keys;
 	t_round		*rounds;
-	t_pTable	pTables;
+	t_pTable	*pTables;
 	char		*plain;
 	char		*cypher;
 	char		**files_name;
@@ -50,8 +50,8 @@ void	closing_and_freeing(int fd, char *line, int ext);
 void	reading_files(t_DES *d);
 void	free_2d_array(char **s);
 void	clean_exit(t_DES *d,int ex, int msg);
-int		my_atoi(t_DES *d, char **tmp, const char *str);
+int		my_atoi(const char *str);
 void	print_2d_array(char **d);
-void	print_sBox(char **sBox);
+void	print_Box(char **sBox, int msg);
 
 #endif

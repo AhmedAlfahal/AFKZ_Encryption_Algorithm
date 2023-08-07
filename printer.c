@@ -9,10 +9,22 @@ void	print_2d_array(char **d)
 		printf("[%s]\n", d[i++]);
 }
 
-void	print_sBox(char **sBox)
+void	print_Box(char **sBox, int msg)
 {
-	for (int i = 0; sBox[i]; i++)
+	char *s = sBox[0];
+	if (msg == 1)
 	{
-		printf("[%d]	[%d]	[%d]	[%d]\n", (int)sBox[i][0], (int)sBox[i][1], (int)sBox[i][2], (int)sBox[i][3]);
+		for (int i = 0; sBox[i]; i++)
+		{
+			for (int j = 0; sBox[i][j]; j++)
+				printf("	[%d]	", (int)sBox[i][j]);
+			printf("\n");
+		}
+	}
+	if (msg == 2)
+	{
+		for (int j = 0; j < 8; j++)
+			printf("	[%d]	", (int)s[j]);
+		printf("\n");
 	}
 }
