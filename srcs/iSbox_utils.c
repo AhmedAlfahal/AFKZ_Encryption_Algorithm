@@ -27,3 +27,13 @@ void	creating_inverse(t_sbox *s)
 			s->iS_box[new_i(s->s_box[i][j])][new_j(s->s_box[i][j])] = new_s(i, j);
 	// print_Box(s->iS_box, 1);
 }
+
+void	creating_inverse_p(t_pTable *p)
+{
+	int originalValue = 0;
+    for (int i = 0; i < 8; i++) {
+        originalValue = p->text_pTable[i];
+        p->text_ipTable[originalValue] = i;
+    }
+
+}

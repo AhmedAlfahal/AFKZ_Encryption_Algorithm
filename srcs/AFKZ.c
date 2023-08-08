@@ -9,6 +9,7 @@ int main(int ac, char **av)
 		reading_keys(&d, av[1]);
 		d.plain = av[2];
 		dividing_blocks(&d);
+		decrypt(&d);
 	}
 	else
 	{

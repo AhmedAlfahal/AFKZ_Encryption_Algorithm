@@ -228,6 +228,7 @@ static void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
 	{
 		reading_p_box(d, d->pTables, tmp_sBox, 2);
 		validate_sBox(d, NULL, d->pTables->text_pTable, 2);
+		creating_inverse_p(d->pTables);
 		// print_Box(&d->pTables->text_pTable, 2);
 	}
 	else
