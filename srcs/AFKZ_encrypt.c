@@ -119,7 +119,10 @@ void	dividing_blocks(t_DES *d)
 				d->rounds[roundss].blocks_before[i][0] = d->plain[i];
 		}
 		else
+		{
+			free_2d_array(d->rounds[roundss].blocks_before);
 			d->rounds[roundss].blocks_before = dupper_2d(d->rounds[roundss - 1].blocks_after);
+		}
 		rounds(d->pTables, d, &d->rounds[roundss]);
 	}
 	for (int i = 0; d->rounds[4].blocks_after[i]; i++)

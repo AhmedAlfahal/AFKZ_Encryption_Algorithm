@@ -95,6 +95,7 @@ void	decrypt(t_DES *d)
 	{
 		if (roundsss != 4)
 		{
+			free_2d_array(d->rounds[roundsss].blocks_after);
 			d->rounds[roundsss].blocks_after = dupper_2d(d->rounds[roundsss + 1].blocks_before);
 		}
 		roundss(d->pTables, d, &d->rounds[roundsss]);
