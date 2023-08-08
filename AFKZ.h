@@ -10,6 +10,7 @@
 typedef struct s_pTable
 {
 	char	*text_pTable;
+	char	*text_ipTable;
 	char	**key_pTable;
 }	t_pTable;
 
@@ -54,5 +55,6 @@ int		my_atoi(const char *str);
 void	print_2d_array(char **d);
 void	print_Box(char **sBox, int msg);
 void	creating_inverse(t_sbox *s);
+void	reading_keys(t_DES *d, char *key);
 
 #endif

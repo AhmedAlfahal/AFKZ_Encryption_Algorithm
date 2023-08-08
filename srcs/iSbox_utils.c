@@ -29,3 +29,5 @@ void	creating_inverse(t_sbox *s)
 		}
 	print_Box(s->iS_box, 1);
 }
+
+// void	

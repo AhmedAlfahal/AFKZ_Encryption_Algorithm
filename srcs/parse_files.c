@@ -38,6 +38,8 @@ static void	allocating_all(t_DES *d)
 	my_bzero(d->pTables->key_pTable, sizeof(char *) * 6);
 	d->pTables->text_pTable = malloc(sizeof(char) * 9);
 	my_bzero(d->pTables->text_pTable, sizeof(char) * 9);
+	d->pTables->text_ipTable = malloc(sizeof(char) * 9);
+	my_bzero(d->pTables->text_ipTable, sizeof(char) * 9);
 	for (int i = 0; i < 11; i++)
 	{
 		d->sBoxs[i].s_box = malloc (sizeof(char *) * 5);

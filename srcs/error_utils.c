@@ -28,14 +28,14 @@ void	free_all(t_DES *d)
 	for (int i = 0; i < 11; i++)
 	{
 		free_2d_array(d->sBoxs[i].s_box);
-		free(d->sBoxs[i].iS_box);
+		free_2d_array(d->sBoxs[i].iS_box);
 	}
 	free_2d_array(d->files_name);
 	free(d->sBoxs);
 	free_2d_array(d->pTables->key_pTable);
 	free(d->pTables->text_pTable);
+	free(d->pTables->text_ipTable);
 	free(d->pTables);
-	// free(d->)
 }
 
 void	clean_exit(t_DES *d,int ex, int msg)
@@ -55,6 +55,8 @@ void	clean_exit(t_DES *d,int ex, int msg)
 		write(2, "pTable for key Value range from [0] - [39]\n", 44);
 	else if (msg == 6)
 		write(2, "pTable for text Value range from [0] - [7]\n", 44);
+	else if (msg == 7)
+		write(2, "key size must be only 5 characters\n", 36);
 	if (ex == 1)
 		exit (ex);
 }
