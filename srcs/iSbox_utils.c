@@ -19,15 +19,11 @@ static int	new_j(int s)
 
 void	creating_inverse(t_sbox *s)
 {
-	printf("---------------------Inverse-------------\n");
+	// printf("---------------------Inverse-------------\n");
 	for (int i = 0; i < 4; i++)
 		s->iS_box[i] = my_strdup("1234");
 	for (int i = 0; s->s_box[i]; i++)
 		for (int j = 0; j < 4; j++)
-		{
 			s->iS_box[new_i(s->s_box[i][j])][new_j(s->s_box[i][j])] = new_s(i, j);
-		}
-	print_Box(s->iS_box, 1);
+	// print_Box(s->iS_box, 1);
 }
-
-// void	

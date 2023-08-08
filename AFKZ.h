@@ -56,5 +56,6 @@ void	print_2d_array(char **d);
 void	print_Box(char **sBox, int msg);
 void	creating_inverse(t_sbox *s);
 void	reading_keys(t_DES *d, char *key);
-
+void 	printBinary(unsigned char v);
+void	dividing_blocks(t_DES *d);
 #endif

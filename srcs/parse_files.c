@@ -40,6 +40,8 @@ static void	allocating_all(t_DES *d)
 	my_bzero(d->pTables->text_pTable, sizeof(char) * 9);
 	d->pTables->text_ipTable = malloc(sizeof(char) * 9);
 	my_bzero(d->pTables->text_ipTable, sizeof(char) * 9);
+	d->keys.sub_keys = malloc(sizeof(char *) * 6);
+	my_bzero(d->keys.sub_keys, sizeof(char *) * 6);
 	for (int i = 0; i < 11; i++)
 	{
 		d->sBoxs[i].s_box = malloc (sizeof(char *) * 5);
@@ -202,7 +204,7 @@ static void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
 	int		fd;
 	char	*line;
 	char	**tmp_sBox;
-	static int i;
+	// static int i;
 
 	fd = open(file_name, O_RDONLY);
 	tmp_sBox = malloc(sizeof(char *) * 6);
@@ -220,22 +222,22 @@ static void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
 	{
 		reading_p_box(d, d->pTables, tmp_sBox, 1);
 		validate_sBox(d, d->pTables->key_pTable, NULL, 1);
-		print_Box(d->pTables->key_pTable, 1);
+		// print_Box(d->pTables->key_pTable, 1);
 	}
 	else if (strcmp(file_name, "tables/p_box2.DES") == 0)
 	{
 		reading_p_box(d, d->pTables, tmp_sBox, 2);
 		validate_sBox(d, NULL, d->pTables->text_pTable, 2);
-		print_Box(&d->pTables->text_pTable, 2);
+		// print_Box(&d->pTables->text_pTable, 2);
 	}
 	else
 	{
 		reading_s_box(d, s, tmp_sBox);
 		validate_sBox(d, s->s_box, NULL, 1);
-		print_Box(s->s_box, 1);
+		// print_Box(s->s_box, 1);
 		creating_inverse(s);
 	}
-	printf("file [%d][%s]\n", i++, file_name);
+	// printf("file [%d][%s]\n", i++, file_name);
 	free_2d_array(tmp_sBox);
 	close(fd);
 }
@@ -245,5 +247,4 @@ void	reading_files(t_DES *d)
 	allocating_all(d);
 	for (int i = 0; i < 12; i++)
 		reading_files_help(d, &d->sBoxs[i], d->files_name[i]);
-	clean_exit(d, 0, 0);
 }

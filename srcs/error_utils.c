@@ -30,6 +30,7 @@ void	free_all(t_DES *d)
 		free_2d_array(d->sBoxs[i].s_box);
 		free_2d_array(d->sBoxs[i].iS_box);
 	}
+	free_2d_array(d->keys.sub_keys);
 	free_2d_array(d->files_name);
 	free(d->sBoxs);
 	free_2d_array(d->pTables->key_pTable);
