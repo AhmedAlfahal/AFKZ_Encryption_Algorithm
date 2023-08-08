@@ -2,17 +2,17 @@ CC		=	cc
 
 CFLAGS	= -Wall -Wextra -Werror -g3 #-fsanitize=address 
 
-NAME	=	SimplifiedDES
+NAME	=	AFKZ_encryption
 
 LIBS	=	get_next_line/gnl.a my_library/Mylib.a
 
 
-SRC		=	DES.c			\
-			DES_utils.c		\
-			parse_files.c	\
-			error_utils.c	\
-			printer.c		\
-			generate_iSbox.c
+SRC		=	srcs/AFKZ.c			\
+			srcs/AFKZ_utils.c	\
+			srcs/parse_files.c	\
+			srcs/error_utils.c	\
+			srcs/printer_utils.c		\
+			srcs/iSbox_utils.c
 
 SRCS	=	$(SRC:%.c=%.o)
 

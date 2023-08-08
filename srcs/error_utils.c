@@ -1,4 +1,4 @@
-#include "DES.h"
+#include "../AFKZ.h"
 
 void	closing_and_freeing(int fd, char *line, int ext)
 {

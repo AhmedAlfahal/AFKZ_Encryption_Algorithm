@@ -1,4 +1,4 @@
-#include "DES.h"
+#include "../AFKZ.h"
 
 void	print_2d_array(char **d)
 {
@@ -21,7 +21,16 @@ void	print_Box(char **sBox, int msg)
 			printf("\n");
 		}
 	}
-	if (msg == 2)
+	else if (msg == 3)
+	{
+		for (int i = 0; sBox[i]; i++)
+		{
+			for (int j = 0; j < 8; j++)
+				printf("	[%d]	", (int)sBox[i][j]);
+			printf("\n");
+		}
+	}
+	else if (msg == 2)
 	{
 		for (int j = 0; j < 8; j++)
 			printf("	[%d]	", (int)s[j]);

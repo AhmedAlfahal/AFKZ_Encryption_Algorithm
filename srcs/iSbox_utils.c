@@ -1,6 +1,5 @@
-#include "DES.h"
-#include "my_library/my_lib.h"
-#include <complex.h>
+#include "../AFKZ.h"
+
 
 static int	new_s(int i, int j)
 {
