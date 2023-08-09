@@ -23,32 +23,35 @@ void	free_2d_array(char **s)
 	free(s);
 }
 
-void	free_all(t_DES *d)
-{
-	for (int i = 0; i < 11; i++)
-	{
-		free_2d_array(d->sBoxs[i].s_box);
-		free_2d_array(d->sBoxs[i].iS_box);
-	}
-	for (int i = 0; i < 5; i++)
-	{
-		free_2d_array(d->rounds[i].blocks_before);
-		free_2d_array(d->rounds[i].blocks_after);
-	}
-	free(d->rounds);
-	free_2d_array(d->keys.sub_keys);
-	// free(d->keys.master);
-	free_2d_array(d->files_name);
-	free(d->sBoxs);
-	free_2d_array(d->pTables->key_pTable);
-	free(d->pTables->text_pTable);
-	free(d->pTables->text_ipTable);
-	free(d->pTables);
-}
+// void	free_all(t_DES *d, int w)
+// {
+// 	if (w == 2)
+// 	{
+// 		for (int i = 0; i < 11; i++)
+// 		{
+// 			free_2d_array(d->sBoxs[i].s_box);
+// 			free_2d_array(d->sBoxs[i].iS_box);
+// 		}
+// 		for (int i = 0; i < 5; i++)
+// 		{
+// 			free_2d_array(d->rounds[i].blocks_before);
+// 			free_2d_array(d->rounds[i].blocks_after);
+// 		}
+// 		free(d->rounds);
+// 	}
+// 	free_2d_array(d->keys.sub_keys);
+// 	free_2d_array(d->files_name);
+// 	free(d->sBoxs);
+// 	free_2d_array(d->pTables->key_pTable);
+// 	free(d->pTables->text_pTable);
+// 	free(d->pTables->text_ipTable);
+// 	free(d->pTables);
+// }
 
 void	clean_exit(t_DES *d,int ex, int msg)
 {
-	free_all(d);
+	// free_all(d);
+	(void)d;
 	if (msg == 0)
 		write(1, "Thanks for using our Algorithm\n", 32);
 	else if (msg == 1)
