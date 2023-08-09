@@ -1,10 +1,9 @@
 # AFKZ_Encryption_Algorithm
+![image](https://github.com/AhmedAlfahal/AFKZ_Encryption_Algorithm/assets/127123864/df26a836-6ab5-4045-a2b8-67b47cbaedae)
 
-![image](https://github.com/AhmedAlfahal/AFKZ_Encryption_Algorithm/assets/127123864/83b96f90-ed7c-4660-81bc-6feb1ce0148f)
+![image](https://github.com/AhmedAlfahal/AFKZ_Encryption_Algorithm/assets/127123864/031abef2-1334-45ec-87e0-04b329f75321)
 
-![image](https://github.com/AhmedAlfahal/AFKZ_Encryption_Algorithm/assets/127123864/386e26ed-0836-4f3a-9dd4-5b17cbc9bb0b)
+![image](https://github.com/AhmedAlfahal/AFKZ_Encryption_Algorithm/assets/127123864/d508081f-6e36-4748-9b45-0e570918777d)
 
-![image](https://github.com/AhmedAlfahal/AFKZ_Encryption_Algorithm/assets/127123864/e08b9efc-3d6a-42b3-972f-be38756a7f41)
- 
-![image](https://github.com/AhmedAlfahal/AFKZ_Encryption_Algorithm/assets/127123864/327425b3-d9db-4d38-86ce-beac22dcd813)
+![image](https://github.com/AhmedAlfahal/AFKZ_Encryption_Algorithm/assets/127123864/f1bfeb76-63f2-4b6f-8d72-1f76ccb26344)
 
