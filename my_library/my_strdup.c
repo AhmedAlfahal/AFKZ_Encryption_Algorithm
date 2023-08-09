@@ -1,5 +1,22 @@
 #include"my_lib.h"
 
+char	**dupper_2d(char **source)
+{
+	int	i;
+	char **tmp = NULL;
+
+	i = my_strlen_2d(source);
+	tmp = malloc(sizeof(char *) * (i + 1));
+	i = 0;
+	while (source[i])
+	{
+		tmp[i] = my_strdup(source[i]);
+		i++;
+	}
+	tmp[i]= NULL;
+	return (tmp);
+}
+
 char	*my_strdup(const char *s1)
 {
 	char	*dup;

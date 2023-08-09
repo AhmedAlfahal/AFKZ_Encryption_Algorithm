@@ -20,23 +20,6 @@ void	roundss(t_pTable *p, t_DES *d, t_round *r)
 	printf("\n");
 }
 
-char	**dupper_2d(char **source)
-{
-	int	i;
-	char **tmp = NULL;
-
-	i = my_strlen_2d(source);
-	tmp = malloc(sizeof(char *) * (i + 1));
-	i = 0;
-	while (source[i])
-	{
-		tmp[i] = my_strdup(source[i]);
-		i++;
-	}
-	tmp[i]= NULL;
-	return (tmp);
-}
-
 void	decrypt(t_DES *d)
 {
 	for (int roundsss = 4; roundsss >= 0; roundsss--)

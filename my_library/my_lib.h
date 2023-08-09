@@ -13,4 +13,5 @@ char	*my_substr(char const *s, unsigned int start, int len);
 char	*my_strdup(const char *s1);
 int		my_strlen_2d(char **s);
 int		my_isdigit(char *s);
+char	**dupper_2d(char **source);
 #endif
