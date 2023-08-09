@@ -30,7 +30,14 @@ void	free_all(t_DES *d)
 		free_2d_array(d->sBoxs[i].s_box);
 		free_2d_array(d->sBoxs[i].iS_box);
 	}
+	for (int i = 0; i < 5; i++)
+	{
+		free_2d_array(d->rounds[i].blocks_before);
+		free_2d_array(d->rounds[i].blocks_after);
+	}
+	free(d->rounds);
 	free_2d_array(d->keys.sub_keys);
+	// free(d->keys.master);
 	free_2d_array(d->files_name);
 	free(d->sBoxs);
 	free_2d_array(d->pTables->key_pTable);

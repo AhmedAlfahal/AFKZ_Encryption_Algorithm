@@ -55,7 +55,7 @@ unsigned char prem_txtt(t_pTable *p, unsigned char c)
 void	roundss(t_pTable *p, t_DES *d, t_round *r)
 {
 	unsigned char c = 0;
-	for (int i = 0; d->plain[i]; i++)
+	for (int i = 0; r->blocks_before[i] && r->blocks_after[i]; i++)
 	{
 		c = r->blocks_after[i][0];
 		c = c ^ d->keys.sub_keys[r->round_numebr][0];

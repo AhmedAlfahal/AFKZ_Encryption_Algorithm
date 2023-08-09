@@ -10,6 +10,7 @@ int main(int ac, char **av)
 		d.plain = av[2];
 		dividing_blocks(&d);
 		decrypt(&d);
+		clean_exit(&d, 0, 0);
 	}
 	else
 	{

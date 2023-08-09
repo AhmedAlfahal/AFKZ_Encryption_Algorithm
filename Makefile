@@ -1,6 +1,6 @@
 CC		=	cc
 
-CFLAGS	= -Wall -Wextra -Werror -g3 -fsanitize=address 
+CFLAGS	= -Wall -Wextra -Werror -g3 #-fsanitize=address 
 
 NAME	=	AFKZ_encryption
 

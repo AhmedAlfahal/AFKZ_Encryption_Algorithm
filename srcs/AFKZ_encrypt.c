@@ -74,7 +74,7 @@ void	rounds(t_pTable *p, t_DES *d, t_round *r)
 	// 	printf("	");
 	// }
 	// printf("\n");
-	for (int i = 0; d->plain[i]; i++)
+	for (int i = 0; r->blocks_before[i]; i++)
 	{
 		c = prem_txt(p,  r->blocks_before[i][0]);
 		c = s_boxing(d->sBoxs[r->s_box1].s_box, d->sBoxs[r->s_box2].s_box, c);
@@ -106,12 +106,12 @@ void	dividing_blocks(t_DES *d)
 	}
 	for (int roundss = 0; roundss < 5; roundss++)
 	{
-		for (int i = 0; i < my_strlen(d->plain); i++)
+		for (int i = 0; i < d->plain[i]; i++)
 		{
-			d->rounds[roundss].blocks_before[i] = my_strdup("00");
-			my_bzero(d->rounds[roundss].blocks_before[i], my_strlen(d->rounds[roundss].blocks_before[i]));
-			d->rounds[roundss].blocks_after[i] = my_strdup("00");
-			my_bzero(d->rounds[roundss].blocks_after[i], my_strlen(d->rounds[roundss].blocks_before[i]));
+			d->rounds[roundss].blocks_before[i] = my_strdup("0");
+			// my_bzero(d->rounds[roundss].blocks_before[i], my_strlen(d->rounds[roundss].blocks_before[i]));
+			d->rounds[roundss].blocks_after[i] = my_strdup("0");
+			// my_bzero(d->rounds[roundss].blocks_after[i], my_strlen(d->rounds[roundss].blocks_before[i]));
 		}
 		if (roundss == 0)
 		{
