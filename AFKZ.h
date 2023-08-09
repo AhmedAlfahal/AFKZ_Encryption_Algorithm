@@ -61,4 +61,10 @@ void 	printBinary(unsigned char v);
 void	dividing_blocks(t_DES *d);
 void	decrypt(t_DES *d);
 char	**dupper_2d(char **source);
+unsigned int	getting_bit(unsigned char c, int n);
+unsigned int	new_i(unsigned int s);
+unsigned int	new_j(unsigned int s);
+unsigned int 	get_left(unsigned int s);
+unsigned int	get_right(unsigned int s);
+unsigned char	s_boxing(char **sl, char **sr, unsigned char c);
 #endif

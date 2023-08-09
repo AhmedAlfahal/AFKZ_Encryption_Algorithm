@@ -1,6 +1,6 @@
 #include "../AFKZ.h"
 
-static int	getting_bit(char *key, int n)
+static int	getting_bitt(char *key, int n)
 {
 	char *tmp = my_strdup(key);
 	int index = n / 8;
@@ -22,5 +22,5 @@ void	reading_keys(t_DES *d, char *key)
 	}
 	for (int i = 0; i < 5; i++)
 		for (int j = 0; j < 8; j++)
-			d->keys.sub_keys[i][0] |= (getting_bit(key, d->pTables->key_pTable[i][j]) << j);
+			d->keys.sub_keys[i][0] |= (getting_bitt(key, d->pTables->key_pTable[i][j]) << j);
 }

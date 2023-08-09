@@ -7,16 +7,6 @@ static int	new_s(int i, int j)
 	return (ii ^ j);
 }
 
-static int	new_i(int s)
-{
-	return ((s & 12) >> 2);
-}
-
-static int	new_j(int s)
-{
-	return (s & 3);
-}
-
 void	creating_inverse(t_sbox *s)
 {
 	// printf("---------------------Inverse-------------\n");
