@@ -7,7 +7,7 @@ void	roundss(t_pTable *p, t_DES *d, t_round *r)
 	{
 		c = r->blocks_after[i][0];
 		c = c ^ d->keys.sub_keys[r->round_numebr][0];
-		c = s_boxing(d->sBoxs[r->s_box2].iS_box, d->sBoxs[r->s_box1].iS_box, c);
+		c = s_boxing(d->sBoxs[r->s_box1].iS_box, d->sBoxs[r->s_box2].iS_box, c);
 		c = prem_txt(p,  c, 2);
 		r->blocks_before[i][0] = c;
 	}

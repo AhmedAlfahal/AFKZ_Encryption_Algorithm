@@ -19,12 +19,12 @@ unsigned int	new_j(unsigned int s)
 
 unsigned int get_left(unsigned int s)
 {
-	return (s & 15);
+	return ((s >> 4) & 15);
 }
 
 unsigned int	get_right(unsigned int s)
 {
-	return ((s >> 4) & 15);
+	return (s & 15);
 }
 
 unsigned char	s_boxing(char **sl, char **sr, unsigned char c)
