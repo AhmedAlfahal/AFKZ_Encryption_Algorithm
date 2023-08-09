@@ -14,7 +14,7 @@ flow chart \
 `git clone git@github.com:AhmedAlfahal/AFKZ_Encryption_Algorithm.git` \
 2- opening the directory: \
 ` cd AFKZ_Encryption_Algorithm` \
-3- Compile the project:
+3- Compile the project: \
 ` make` \
 4- Usage: \
 `.//AFKZ_Encryption [Key] [Plain_text]` \
