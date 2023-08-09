@@ -11,7 +11,7 @@ static int	getting_bitt(char *key, int n)
 }
 
 
-void	reading_keys(t_DES *d, char *key)
+void	reading_keys(t_AFKZ *d, char *key)
 {
 	if (my_strlen(key) != 5)
 		clean_exit(d, 1, 7);

@@ -2,7 +2,7 @@
 
 int main(int ac, char **av)
 {
-	t_DES d;
+	t_AFKZ d;
 	if (ac == 3)
 	{
 		reading_files(&d);

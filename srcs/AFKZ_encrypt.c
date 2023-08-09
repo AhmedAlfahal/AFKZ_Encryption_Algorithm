@@ -12,7 +12,7 @@ static unsigned char reverseBits(unsigned char num) {
     return reversed;
 }
 
-void	rounds(t_pTable *p, t_DES *d, t_round *r)
+void	rounds(t_pTable *p, t_AFKZ *d, t_round *r)
 {
 	unsigned char c = 0;
 	for (int i = 0; r->blocks_before[i]; i++)
@@ -31,7 +31,7 @@ void	rounds(t_pTable *p, t_DES *d, t_round *r)
 	printf("\n");
 }
 
-void	encrypt(t_DES *d)
+void	encrypt(t_AFKZ *d)
 {
 	d->rounds = malloc(sizeof(t_round) * 6);
 	my_bzero(d->rounds, sizeof(t_round) * 6);

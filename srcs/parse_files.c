@@ -1,6 +1,6 @@
 #include "../AFKZ.h"
 
-static void validate_value(t_DES *d, char **tmp, int value, int condition)
+static void validate_value(t_AFKZ *d, char **tmp, int value, int condition)
 {
 	if (condition == 1)
 	{
@@ -28,7 +28,7 @@ static void validate_value(t_DES *d, char **tmp, int value, int condition)
 	}
 }
 
-static void	allocating_all(t_DES *d)
+static void	allocating_all(t_AFKZ *d)
 {
 	d->sBoxs = malloc(sizeof(t_sbox) * 11);
 	my_bzero(d->sBoxs, sizeof(t_sbox) * 11);
@@ -65,7 +65,7 @@ static void	allocating_all(t_DES *d)
 	d->files_name[11] = strdup("tables/p_box2.DES");
 }
 
-static void	validate_sBox(t_DES *d, char **s, char *ss, int msg)
+static void	validate_sBox(t_AFKZ *d, char **s, char *ss, int msg)
 {
 	int tmp = -1;
 	if (msg == 1)
@@ -104,7 +104,7 @@ static void	validate_sBox(t_DES *d, char **s, char *ss, int msg)
 	}
 }
 
-static void	reading_s_box(t_DES *d, t_sbox *s, char **s_box)
+static void	reading_s_box(t_AFKZ *d, t_sbox *s, char **s_box)
 {
 	char **tmp;
 	
@@ -141,7 +141,7 @@ static void	reading_s_box(t_DES *d, t_sbox *s, char **s_box)
 
 }
 
-void	reading_p_box(t_DES *d, t_pTable *p, char **p_box, int bx_num)
+void	reading_p_box(t_AFKZ *d, t_pTable *p, char **p_box, int bx_num)
 {
 	char **tmp = NULL;
 	if (bx_num == 1)
@@ -199,7 +199,7 @@ void	reading_p_box(t_DES *d, t_pTable *p, char **p_box, int bx_num)
 }
 
 
-static void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
+static void	reading_files_help(t_AFKZ *d, t_sbox *s, char *file_name)
 {
 	int		fd;
 	char	*line;
@@ -243,7 +243,7 @@ static void	reading_files_help(t_DES *d, t_sbox *s, char *file_name)
 	close(fd);
 }
 
-void	reading_files(t_DES *d)
+void	reading_files(t_AFKZ *d)
 {
 	allocating_all(d);
 	for (int i = 0; i < 12; i++)

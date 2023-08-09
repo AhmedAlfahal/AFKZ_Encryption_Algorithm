@@ -1,6 +1,6 @@
 #include "../AFKZ.h"
 
-void	roundss(t_pTable *p, t_DES *d, t_round *r)
+void	roundss(t_pTable *p, t_AFKZ *d, t_round *r)
 {
 	unsigned char c = 0;
 	for (int i = 0; r->blocks_before[i] && r->blocks_after[i]; i++)
@@ -20,7 +20,7 @@ void	roundss(t_pTable *p, t_DES *d, t_round *r)
 	printf("\n");
 }
 
-void	decrypt(t_DES *d)
+void	decrypt(t_AFKZ *d)
 {
 	for (int i = 0; i < 4; i++)
 	{

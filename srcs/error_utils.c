@@ -23,7 +23,7 @@ void	free_2d_array(char **s)
 	free(s);
 }
 
-// void	free_all(t_DES *d, int w)
+// void	free_all(t_AFKZ *d, int w)
 // {
 // 	if (w == 2)
 // 	{
@@ -48,7 +48,7 @@ void	free_2d_array(char **s)
 // 	free(d->pTables);
 // }
 
-void	clean_exit(t_DES *d,int ex, int msg)
+void	clean_exit(t_AFKZ *d,int ex, int msg)
 {
 	// free_all(d);
 	(void)d;
