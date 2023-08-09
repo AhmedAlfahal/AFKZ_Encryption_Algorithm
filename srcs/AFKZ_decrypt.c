@@ -22,6 +22,15 @@ void	roundss(t_pTable *p, t_DES *d, t_round *r)
 
 void	decrypt(t_DES *d)
 {
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; d->rounds[i].blocks_before[j]; j++)
+			my_bzero(d->rounds[i].blocks_before[j], my_strlen(d->rounds[i].blocks_before[j]));
+		for (int j = 0; d->rounds[i].blocks_after[j]; j++)
+			my_bzero(d->rounds[i].blocks_after[j], my_strlen(d->rounds[i].blocks_after[j]));
+	}
+	for (int j = 0; d->rounds[4].blocks_before[j]; j++)
+		my_bzero(d->rounds[4].blocks_before[j], my_strlen(d->rounds[4].blocks_before[j]));
 	for (int roundsss = 4; roundsss >= 0; roundsss--)
 	{
 		if (roundsss != 4)
