@@ -1,5 +1,5 @@
-#ifndef DES_H
-#define DES_H
+#ifndef AFKZ_H
+#define AFKZ_H
 
 #include "./get_next_line/get_next_line.h"
 #include "fcntl.h"
@@ -67,4 +67,5 @@ unsigned int	new_j(unsigned int s);
 unsigned int 	get_left(unsigned int s);
 unsigned int	get_right(unsigned int s);
 unsigned char	s_boxing(char **sl, char **sr, unsigned char c);
+unsigned char prem_txt(t_pTable *p, unsigned char c, int p_i);
 #endif

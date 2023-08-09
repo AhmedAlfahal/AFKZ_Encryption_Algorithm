@@ -1,17 +1,5 @@
 #include "../AFKZ.h"
 
-unsigned char prem_txtt(t_pTable *p, unsigned char c)
-{
-	unsigned char tmp = 0;
-	unsigned char tt = c;
-	for (int j = 0; j < 8; j++)
-	{
-		tmp |= (getting_bit(tt, (int)p->text_ipTable[j]) << j);
-		tt = c;
-	}
-	return (tmp);
-}
-
 void	roundss(t_pTable *p, t_DES *d, t_round *r)
 {
 	unsigned char c = 0;
@@ -20,7 +8,7 @@ void	roundss(t_pTable *p, t_DES *d, t_round *r)
 		c = r->blocks_after[i][0];
 		c = c ^ d->keys.sub_keys[r->round_numebr][0];
 		c = s_boxing(d->sBoxs[r->s_box2].iS_box, d->sBoxs[r->s_box1].iS_box, c);
-		c = prem_txtt(p,  c);
+		c = prem_txt(p,  c, 2);
 		r->blocks_before[i][0] = c;
 	}
 	printf("round	[%d]	", r->round_numebr);

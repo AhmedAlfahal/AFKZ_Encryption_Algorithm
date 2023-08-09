@@ -12,31 +12,12 @@ static unsigned char reverseBits(unsigned char num) {
     return reversed;
 }
 
-unsigned char prem_txt(t_pTable *p, unsigned char c)
-{
-	unsigned char tmp = 0;
-	unsigned char tt = c;
-	for (int j = 0; j < 8; j++)
-	{
-		tmp |= (getting_bit(tt, (int)p->text_pTable[j]) << j);
-		tt = c;
-	}
-	return (tmp);
-}
-
 void	rounds(t_pTable *p, t_DES *d, t_round *r)
 {
 	unsigned char c = 0;
-	// printf("round	[%d]	B	", r->round_numebr);
-	// for (int i = 0; d->plain[i]; i++)
-	// {
-	// 	printBinary(r->blocks_before[i][0]);
-	// 	printf("	");
-	// }
-	// printf("\n");
 	for (int i = 0; r->blocks_before[i]; i++)
 	{
-		c = prem_txt(p,  r->blocks_before[i][0]);
+		c = prem_txt(p,  r->blocks_before[i][0], 1);
 		c = s_boxing(d->sBoxs[r->s_box1].s_box, d->sBoxs[r->s_box2].s_box, c);
 		c = c ^ d->keys.sub_keys[r->round_numebr][0];
 		r->blocks_after[i][0] = c;
@@ -69,9 +50,7 @@ void	dividing_blocks(t_DES *d)
 		for (int i = 0; i < d->plain[i]; i++)
 		{
 			d->rounds[roundss].blocks_before[i] = my_strdup("0");
-			// my_bzero(d->rounds[roundss].blocks_before[i], my_strlen(d->rounds[roundss].blocks_before[i]));
 			d->rounds[roundss].blocks_after[i] = my_strdup("0");
-			// my_bzero(d->rounds[roundss].blocks_after[i], my_strlen(d->rounds[roundss].blocks_before[i]));
 		}
 		if (roundss == 0)
 		{

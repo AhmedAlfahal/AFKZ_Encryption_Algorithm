@@ -39,3 +39,26 @@ unsigned char	s_boxing(char **sl, char **sr, unsigned char c)
 	new = new ^ cr;
 	return (new);
 }
+
+unsigned char prem_txt(t_pTable *p, unsigned char c, int p_i)
+{
+	unsigned char tmp = 0;
+	unsigned char tt = c;
+	if (p_i == 1)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			tmp |= (getting_bit(tt, (int)p->text_pTable[j]) << j);
+			tt = c;
+		}
+	}
+	else if (p_i == 2)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			tmp |= (getting_bit(tt, (int)p->text_ipTable[j]) << j);
+			tt = c;
+		}
+	}
+	return (tmp);
+}
