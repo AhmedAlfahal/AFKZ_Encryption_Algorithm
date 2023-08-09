@@ -8,7 +8,7 @@ int main(int ac, char **av)
 		reading_files(&d);
 		reading_keys(&d, av[1]);
 		d.plain = av[2];
-		dividing_blocks(&d);
+		encrypt(&d);
 		decrypt(&d);
 		clean_exit(&d, 0, 0);
 	}

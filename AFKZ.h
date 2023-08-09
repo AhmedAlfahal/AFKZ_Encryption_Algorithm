@@ -58,7 +58,7 @@ void	creating_inverse(t_sbox *s);
 void	creating_inverse_p(t_pTable *p);
 void	reading_keys(t_DES *d, char *key);
 void 	printBinary(unsigned char v);
-void	dividing_blocks(t_DES *d);
+void	encrypt(t_DES *d);
 void	decrypt(t_DES *d);
 char	**dupper_2d(char **source);
 unsigned int	getting_bit(unsigned char c, int n);
