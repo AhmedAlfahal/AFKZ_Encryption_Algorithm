@@ -98,8 +98,8 @@ void	dividing_blocks(t_DES *d)
 	{
 		d->rounds[i].blocks_before = malloc(sizeof(char * ) * (my_strlen(d->plain) + 1));
 		d->rounds[i].blocks_after = malloc(sizeof(char * ) * (my_strlen(d->plain) + 1));
-		my_bzero(d->rounds[i].blocks_before, (my_strlen(d->plain) + 1));
-		my_bzero(d->rounds[i].blocks_after, (my_strlen(d->plain) + 1));
+		my_bzero(d->rounds[i].blocks_before, sizeof(char * ) * (my_strlen(d->plain) + 1));
+		my_bzero(d->rounds[i].blocks_after, sizeof(char * ) * (my_strlen(d->plain) + 1));
 		d->rounds[i].round_numebr = i;
 		d->rounds[i].s_box1 = (unsigned int)d->keys.sub_keys[i][0] % 10;
 		d->rounds[i].s_box2 = reverseBits(d->keys.sub_keys[i][0]) % 10;
@@ -108,10 +108,10 @@ void	dividing_blocks(t_DES *d)
 	{
 		for (int i = 0; i < my_strlen(d->plain); i++)
 		{
-			d->rounds[roundss].blocks_before[i] = malloc(3);
-			my_bzero(d->rounds[roundss].blocks_before[i], 3);
-			d->rounds[roundss].blocks_after[i] = malloc(3);
-			my_bzero(d->rounds[roundss].blocks_after[i], 3);
+			d->rounds[roundss].blocks_before[i] = my_strdup("00");
+			my_bzero(d->rounds[roundss].blocks_before[i], my_strlen(d->rounds[roundss].blocks_before[i]));
+			d->rounds[roundss].blocks_after[i] = my_strdup("00");
+			my_bzero(d->rounds[roundss].blocks_after[i], my_strlen(d->rounds[roundss].blocks_before[i]));
 		}
 		if (roundss == 0)
 		{

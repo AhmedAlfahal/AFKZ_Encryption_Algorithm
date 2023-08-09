@@ -78,14 +78,14 @@ char	**dupper_2d(char **source)
 	char **tmp = NULL;
 
 	i = my_strlen_2d(source);
-	tmp = malloc(sizeof(char *) * (i + 2));
+	tmp = malloc(sizeof(char *) * (i + 1));
 	i = 0;
 	while (source[i])
 	{
 		tmp[i] = my_strdup(source[i]);
 		i++;
 	}
-	tmp[i + 1]= NULL;
+	tmp[i]= NULL;
 	return (tmp);
 }
 
