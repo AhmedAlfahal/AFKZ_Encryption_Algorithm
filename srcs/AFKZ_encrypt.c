@@ -81,13 +81,13 @@ void	rounds(t_pTable *p, t_DES *d, t_round *r)
 		c = c ^ d->keys.sub_keys[r->round_numebr][0];
 		r->blocks_after[i][0] = c;
 	}
-	// printf("round	[%d]	A	", r->round_numebr);
-	// for (int i = 0; d->plain[i]; i++)
-	// {
-	// 	printBinary(r->blocks_after[i][0]);
-	// 	printf("	");
-	// }
-	// printf("\n");
+	printf("round	[%d]	", r->round_numebr);
+	for (int i = 0; d->plain[i]; i++)
+	{
+		printBinary(r->blocks_after[i][0]);
+		printf("	");
+	}
+	printf("\n");
 }
 
 void	dividing_blocks(t_DES *d)

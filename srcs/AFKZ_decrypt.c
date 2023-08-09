@@ -63,13 +63,13 @@ void	roundss(t_pTable *p, t_DES *d, t_round *r)
 		c = prem_txtt(p,  c);
 		r->blocks_before[i][0] = c;
 	}
-	// printf("round	[%d]	A	", r->round_numebr);
-	// for (int i = 0; d->plain[i]; i++)
-	// {
-	// 	printBinary(r->blocks_before[i][0]);
-	// 	printf("	[%c]	", r->blocks_before[i][0]);
-	// }
-	// printf("\n");
+	printf("round	[%d]	", r->round_numebr);
+	for (int i = 0; d->plain[i]; i++)
+	{
+		printBinary(r->blocks_after[i][0]);
+		printf("	");
+	}
+	printf("\n");
 }
 
 char	**dupper_2d(char **source)
@@ -100,6 +100,6 @@ void	decrypt(t_DES *d)
 		}
 		roundss(d->pTables, d, &d->rounds[roundsss]);
 	}
-	for (int i = 0; d->rounds[4].blocks_before[i]; i++)
+	for (int i = 0; d->rounds[0].blocks_before[i]; i++)
 		printf("[%c]", d->rounds[0].blocks_before[i][0]);
 }
