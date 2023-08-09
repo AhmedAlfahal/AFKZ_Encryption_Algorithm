@@ -13,9 +13,9 @@ flow chart \
 1- clone the repo: \
 `git clone git@github.com:AhmedAlfahal/AFKZ_Encryption_Algorithm.git` \
 2- opening the directory: \
-` cd AFKZ_Encryption_Algorithm` \
+  `cd AFKZ_Encryption_Algorithm` \
 3- Compile the project: \
-` make` \
+  `make` \
 4- Usage: \
 `.//AFKZ_Encryption [Key] [Plain_text]` \
 5-Enjoy Encrypting you texts & be safe ;)
